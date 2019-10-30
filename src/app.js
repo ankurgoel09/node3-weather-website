@@ -5,6 +5,8 @@ const app = express()
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
+const port = process.env.PORT || 3000
+
 const publicdirpath = path.join(__dirname, '../public')
 app.use(express.static(publicdirpath))
 app.set('views', path.join(__dirname, '../templates/views')); // Added after online research
@@ -83,6 +85,6 @@ app.get('*', (req, res) => {
         title: '404 page, not found'})
 })
 
-app.listen(3000, () => {
-    console.log('Server is up at port 3000')
+app.listen(port, () => {
+    console.log('Server is up at port ' + port)
 })
